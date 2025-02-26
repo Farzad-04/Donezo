@@ -1,0 +1,94 @@
+<html>
+<head>
+<title>style.css</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #d5b778;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #bababa;}
+.s4 { color: #bcbec4;}
+.s5 { color: #6aab73;}
+.s6 { color: #56a8f5;}
+.s7 { color: #2aacb8;}
+.s8 { color: #7a7e85;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+style.css</font>
+</center></td></tr></table>
+<pre><span class="s0">body </span><span class="s2">{</span>
+    <span class="s3">font-family</span><span class="s4">: </span><span class="s0">Georgia</span><span class="s2">, </span><span class="s5">'Times New Roman'</span><span class="s2">, </span><span class="s0">Times</span><span class="s2">, </span><span class="s5">serif</span><span class="s2">;</span>
+    <span class="s3">background-image</span><span class="s4">: </span><span class="s0">url</span><span class="s2">(</span><span class="s5">'myaot.png'</span><span class="s2">);</span>
+    <span class="s3">background-size</span><span class="s4">: </span><span class="s5">cover</span><span class="s2">;</span>
+    <span class="s3">background-repeat</span><span class="s4">: </span><span class="s5">no-repeat</span><span class="s2">;</span>
+    <span class="s3">background-attachment</span><span class="s4">: </span><span class="s5">fixed</span><span class="s2">;</span>
+    <span class="s3">background-color</span><span class="s4">: </span><span class="s6">#f4f4f4</span><span class="s2">;</span>
+    <span class="s3">margin</span><span class="s4">: </span><span class="s7">0</span><span class="s2">;</span>
+    <span class="s3">padding</span><span class="s4">: </span><span class="s7">0</span><span class="s2">;</span>
+<span class="s2">}</span>
+
+<span class="s0">#container </span><span class="s2">{</span>
+    <span class="s3">width</span><span class="s4">: </span><span class="s7">400</span><span class="s5">px</span><span class="s2">;</span>
+    <span class="s3">margin</span><span class="s4">: </span><span class="s7">20</span><span class="s5">px auto</span><span class="s2">; </span><span class="s8">/* Adjusted for visual alignment */</span>
+    <span class="s3">padding</span><span class="s4">: </span><span class="s7">20</span><span class="s5">px</span><span class="s2">;</span>
+    <span class="s3">border-radius</span><span class="s4">: </span><span class="s7">5</span><span class="s5">px</span><span class="s2">;</span>
+    <span class="s3">text-align</span><span class="s4">: </span><span class="s5">center</span><span class="s2">; </span><span class="s8">/* This centers the title text */</span>
+<span class="s2">}</span>
+
+<span class="s0">#task-list </span><span class="s2">{</span>
+    <span class="s8">/* background-color: #fff; If you wish to remove the white background, comment out or remove this line */</span>
+    <span class="s3">padding</span><span class="s4">: </span><span class="s7">10</span><span class="s5">px</span><span class="s2">;</span>
+    <span class="s3">border-radius</span><span class="s4">: </span><span class="s7">5</span><span class="s5">px</span><span class="s2">;</span>
+    <span class="s3">margin-top</span><span class="s4">: </span><span class="s7">20</span><span class="s5">px</span><span class="s2">;</span>
+<span class="s2">}</span>
+
+<span class="s2">.</span><span class="s0">task-item </span><span class="s2">{</span>
+    <span class="s3">display</span><span class="s4">: </span><span class="s5">flex</span><span class="s2">;</span>
+    <span class="s3">justify-content</span><span class="s4">: </span><span class="s5">space-between</span><span class="s2">;</span>
+    <span class="s3">align-items</span><span class="s4">: </span><span class="s5">center</span><span class="s2">;</span>
+    <span class="s3">margin</span><span class="s4">: </span><span class="s7">5</span><span class="s5">px </span><span class="s7">0</span><span class="s2">;</span>
+<span class="s2">}</span>
+
+<span class="s2">.</span><span class="s0">task-text </span><span class="s2">{</span>
+    <span class="s3">flex</span><span class="s4">: </span><span class="s7">1</span><span class="s2">;</span>
+<span class="s2">}</span>
+
+<span class="s2">.</span><span class="s0">completed </span><span class="s2">{</span>
+    <span class="s3">text-decoration</span><span class="s4">: </span><span class="s5">line-through</span><span class="s2">;</span>
+<span class="s2">}</span>
+
+<span class="s2">.</span><span class="s0">priority-high </span><span class="s2">{</span>
+    <span class="s3">background-color</span><span class="s4">: </span><span class="s6">#ffcccc</span><span class="s2">;</span>
+<span class="s2">}</span>
+
+<span class="s2">.</span><span class="s0">priority-medium </span><span class="s2">{</span>
+    <span class="s3">background-color</span><span class="s4">: </span><span class="s6">#ffffcc</span><span class="s2">;</span>
+<span class="s2">}</span>
+
+<span class="s2">.</span><span class="s0">priority-low </span><span class="s2">{</span>
+    <span class="s3">background-color</span><span class="s4">: </span><span class="s6">#ccffcc</span><span class="s2">;</span>
+<span class="s2">}</span>
+
+<span class="s0">#add-task-form </span><span class="s2">{</span>
+    <span class="s3">display</span><span class="s4">: </span><span class="s5">flex</span><span class="s2">;</span>
+    <span class="s3">justify-content</span><span class="s4">: </span><span class="s5">center</span><span class="s2">; </span><span class="s8">/* This adjustment is for centering form elements, might need individual styling */</span>
+    <span class="s3">margin-top</span><span class="s4">: </span><span class="s7">20</span><span class="s5">px</span><span class="s2">;</span>
+<span class="s2">}</span>
+
+<span class="s0">#add-task-input</span><span class="s2">, </span><span class="s0">#task-priority</span><span class="s2">, </span><span class="s0">#due-date </span><span class="s2">{</span>
+    <span class="s3">margin-right</span><span class="s4">: </span><span class="s7">5</span><span class="s5">px</span><span class="s2">; </span><span class="s8">/* Adds spacing between form elements */</span>
+<span class="s2">}</span>
+
+<span class="s0">#add-task-button </span><span class="s2">{</span>
+    <span class="s3">background-color</span><span class="s4">: </span><span class="s6">#333</span><span class="s2">;</span>
+    <span class="s3">color</span><span class="s4">: </span><span class="s6">#fff</span><span class="s2">;</span>
+    <span class="s3">border</span><span class="s4">: </span><span class="s5">none</span><span class="s2">;</span>
+    <span class="s3">padding</span><span class="s4">: </span><span class="s7">5</span><span class="s5">px </span><span class="s7">10</span><span class="s5">px</span><span class="s2">;</span>
+    <span class="s3">cursor</span><span class="s4">: </span><span class="s5">pointer</span><span class="s2">;</span>
+<span class="s2">}</span></pre>
+</body>
+</html>

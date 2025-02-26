@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('myaot.png');
+            background-size: cover;
+            background-repeat: repeat;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <h1>To-Do List</h1>
+    <form id="add-task-form">
+        <input type="text" id="add-task-input" placeholder="Add a new task">
+        <select id="task-priority">
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+        </select>
+        <input type="date" id="due-date">
+        <button id="add-task-button">Add Task</button>
+    </form>
+    <div id="task-list"></div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

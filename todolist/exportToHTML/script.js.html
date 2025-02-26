@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>script.js</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+.s4 { color: #7a7e85;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+script.js</font>
+</center></td></tr></table>
+<pre><span class="s0">const </span><span class="s1">taskList </span><span class="s2">= </span><span class="s1">document</span><span class="s2">.</span><span class="s1">getElementById</span><span class="s2">(</span><span class="s3">'task-list'</span><span class="s2">);</span>
+<span class="s0">const </span><span class="s1">addTaskInput </span><span class="s2">= </span><span class="s1">document</span><span class="s2">.</span><span class="s1">getElementById</span><span class="s2">(</span><span class="s3">'add-task-input'</span><span class="s2">);</span>
+<span class="s0">const </span><span class="s1">addTaskButton </span><span class="s2">= </span><span class="s1">document</span><span class="s2">.</span><span class="s1">getElementById</span><span class="s2">(</span><span class="s3">'add-task-button'</span><span class="s2">);</span>
+<span class="s0">const </span><span class="s1">taskPriority </span><span class="s2">= </span><span class="s1">document</span><span class="s2">.</span><span class="s1">getElementById</span><span class="s2">(</span><span class="s3">'task-priority'</span><span class="s2">);</span>
+<span class="s0">const </span><span class="s1">dueDate </span><span class="s2">= </span><span class="s1">document</span><span class="s2">.</span><span class="s1">getElementById</span><span class="s2">(</span><span class="s3">'due-date'</span><span class="s2">);</span>
+
+<span class="s0">let </span><span class="s1">tasks </span><span class="s2">= </span><span class="s1">JSON</span><span class="s2">.</span><span class="s1">parse</span><span class="s2">(</span><span class="s1">localStorage</span><span class="s2">.</span><span class="s1">getItem</span><span class="s2">(</span><span class="s3">'tasks'</span><span class="s2">)) || [];</span>
+
+<span class="s0">function </span><span class="s1">saveTasks</span><span class="s2">() {</span>
+    <span class="s1">localStorage</span><span class="s2">.</span><span class="s1">setItem</span><span class="s2">(</span><span class="s3">'tasks'</span><span class="s2">, </span><span class="s1">JSON</span><span class="s2">.</span><span class="s1">stringify</span><span class="s2">(</span><span class="s1">tasks</span><span class="s2">));</span>
+<span class="s2">}</span>
+
+<span class="s0">function </span><span class="s1">renderTasks</span><span class="s2">() {</span>
+    <span class="s1">taskList</span><span class="s2">.</span><span class="s1">innerHTML </span><span class="s2">= </span><span class="s3">''</span><span class="s2">;</span>
+    <span class="s1">tasks</span><span class="s2">.</span><span class="s1">forEach</span><span class="s2">(</span><span class="s1">task </span><span class="s2">=&gt; {</span>
+        <span class="s0">const </span><span class="s1">taskItem </span><span class="s2">= </span><span class="s1">document</span><span class="s2">.</span><span class="s1">createElement</span><span class="s2">(</span><span class="s3">'div'</span><span class="s2">);</span>
+        <span class="s1">taskItem</span><span class="s2">.</span><span class="s1">className </span><span class="s2">= </span><span class="s3">'task-item'</span><span class="s2">;</span>
+
+        <span class="s0">const </span><span class="s1">taskText </span><span class="s2">= </span><span class="s1">document</span><span class="s2">.</span><span class="s1">createElement</span><span class="s2">(</span><span class="s3">'div'</span><span class="s2">);</span>
+        <span class="s1">taskText</span><span class="s2">.</span><span class="s1">className </span><span class="s2">= </span><span class="s3">`task-text </span><span class="s1">$</span><span class="s2">{</span><span class="s1">task</span><span class="s2">.</span><span class="s1">completed </span><span class="s2">? </span><span class="s3">'completed' </span><span class="s2">: </span><span class="s3">''</span><span class="s2">} </span><span class="s3">priority-</span><span class="s1">$</span><span class="s2">{</span><span class="s1">task</span><span class="s2">.</span><span class="s1">priority</span><span class="s2">}</span><span class="s3">`</span><span class="s2">;</span>
+        <span class="s1">taskText</span><span class="s2">.</span><span class="s1">innerHTML </span><span class="s2">= </span><span class="s3">`</span><span class="s1">$</span><span class="s2">{</span><span class="s1">task</span><span class="s2">.</span><span class="s1">text</span><span class="s2">} </span><span class="s1">$</span><span class="s2">{</span><span class="s1">task</span><span class="s2">.</span><span class="s1">dueDate </span><span class="s2">? </span><span class="s3">`&lt;span class=&quot;due-date&quot;&gt;Due: </span><span class="s1">$</span><span class="s2">{</span><span class="s1">task</span><span class="s2">.</span><span class="s1">dueDate</span><span class="s2">}</span><span class="s3">&lt;/span&gt;` </span><span class="s2">: </span><span class="s3">''</span><span class="s2">}</span><span class="s3">`</span><span class="s2">;</span>
+
+        <span class="s0">const </span><span class="s1">deleteButton </span><span class="s2">= </span><span class="s1">document</span><span class="s2">.</span><span class="s1">createElement</span><span class="s2">(</span><span class="s3">'button'</span><span class="s2">);</span>
+        <span class="s1">deleteButton</span><span class="s2">.</span><span class="s1">innerText </span><span class="s2">= </span><span class="s3">'Delete'</span><span class="s2">;</span>
+        <span class="s1">deleteButton</span><span class="s2">.</span><span class="s1">addEventListener</span><span class="s2">(</span><span class="s3">'click'</span><span class="s2">, () =&gt; {</span>
+            <span class="s1">tasks </span><span class="s2">= </span><span class="s1">tasks</span><span class="s2">.</span><span class="s1">filter</span><span class="s2">(</span><span class="s1">t </span><span class="s2">=&gt; </span><span class="s1">t </span><span class="s2">!== </span><span class="s1">task</span><span class="s2">);</span>
+            <span class="s1">saveTasks</span><span class="s2">();</span>
+            <span class="s1">renderTasks</span><span class="s2">();</span>
+        <span class="s2">});</span>
+
+        <span class="s0">const </span><span class="s1">completeButton </span><span class="s2">= </span><span class="s1">document</span><span class="s2">.</span><span class="s1">createElement</span><span class="s2">(</span><span class="s3">'button'</span><span class="s2">);</span>
+        <span class="s1">completeButton</span><span class="s2">.</span><span class="s1">innerText </span><span class="s2">= </span><span class="s3">'Complete'</span><span class="s2">;</span>
+        <span class="s1">completeButton</span><span class="s2">.</span><span class="s1">addEventListener</span><span class="s2">(</span><span class="s3">'click'</span><span class="s2">, () =&gt; {</span>
+            <span class="s1">task</span><span class="s2">.</span><span class="s1">completed </span><span class="s2">= !</span><span class="s1">task</span><span class="s2">.</span><span class="s1">completed</span><span class="s2">;</span>
+            <span class="s1">saveTasks</span><span class="s2">();</span>
+            <span class="s1">renderTasks</span><span class="s2">();</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">task</span><span class="s2">.</span><span class="s1">completed</span><span class="s2">) {</span>
+                <span class="s1">alert</span><span class="s2">(</span><span class="s3">'Good work!'</span><span class="s2">); </span><span class="s4">// Pop-up message for completing a task</span>
+            <span class="s2">}</span>
+        <span class="s2">});</span>
+
+        <span class="s1">taskItem</span><span class="s2">.</span><span class="s1">appendChild</span><span class="s2">(</span><span class="s1">taskText</span><span class="s2">);</span>
+        <span class="s1">taskItem</span><span class="s2">.</span><span class="s1">appendChild</span><span class="s2">(</span><span class="s1">deleteButton</span><span class="s2">);</span>
+        <span class="s1">taskItem</span><span class="s2">.</span><span class="s1">appendChild</span><span class="s2">(</span><span class="s1">completeButton</span><span class="s2">);</span>
+        <span class="s1">taskList</span><span class="s2">.</span><span class="s1">appendChild</span><span class="s2">(</span><span class="s1">taskItem</span><span class="s2">);</span>
+    <span class="s2">});</span>
+<span class="s2">}</span>
+
+<span class="s1">addTaskButton</span><span class="s2">.</span><span class="s1">addEventListener</span><span class="s2">(</span><span class="s3">'click'</span><span class="s2">, () =&gt; {</span>
+    <span class="s0">const </span><span class="s1">taskText </span><span class="s2">= </span><span class="s1">addTaskInput</span><span class="s2">.</span><span class="s1">value</span><span class="s2">.</span><span class="s1">trim</span><span class="s2">();</span>
+    <span class="s0">const </span><span class="s1">taskPriorityValue </span><span class="s2">= </span><span class="s1">taskPriority</span><span class="s2">.</span><span class="s1">value</span><span class="s2">;</span>
+    <span class="s0">const </span><span class="s1">taskDueDate </span><span class="s2">= </span><span class="s1">dueDate</span><span class="s2">.</span><span class="s1">value</span><span class="s2">;</span>
+
+    <span class="s0">if </span><span class="s2">(</span><span class="s1">taskText</span><span class="s2">) {</span>
+        <span class="s1">tasks</span><span class="s2">.</span><span class="s1">push</span><span class="s2">({</span>
+            <span class="s1">text</span><span class="s2">: </span><span class="s1">taskText</span><span class="s2">,</span>
+            <span class="s1">completed</span><span class="s2">: </span><span class="s0">false</span><span class="s2">,</span>
+            <span class="s1">priority</span><span class="s2">: </span><span class="s1">taskPriorityValue</span><span class="s2">,</span>
+            <span class="s1">dueDate</span><span class="s2">: </span><span class="s1">taskDueDate</span>
+        <span class="s2">});</span>
+
+        <span class="s1">addTaskInput</span><span class="s2">.</span><span class="s1">value </span><span class="s2">= </span><span class="s3">''</span><span class="s2">;</span>
+        <span class="s1">dueDate</span><span class="s2">.</span><span class="s1">value </span><span class="s2">= </span><span class="s3">''</span><span class="s2">;</span>
+        <span class="s1">saveTasks</span><span class="s2">();</span>
+        <span class="s1">renderTasks</span><span class="s2">();</span>
+    <span class="s2">}</span>
+<span class="s2">});</span>
+
+<span class="s1">renderTasks</span><span class="s2">();</span></pre>
+</body>
+</html>
